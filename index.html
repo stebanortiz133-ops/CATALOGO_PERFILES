@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de Perfiles de Acero — Ecuador</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0b1220;
+    --dark: #111827;
+    --card: #151e2e;
+    --border: #1e3a5f;
+    --steel: #1e4080;
+    --orange: #f97316;
+    --orange-dim: #c05a10;
+    --text: #d1dde8;
+    --muted: #6b8099;
+    --white: #f0f6ff;
+    --accent: #38bdf8;
+    --green: #22d3a0;
+    --table-odd: #131c2d;
+    --table-even: #0e1624;
+    --table-head: #1a2e50;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* ──────── COVER PAGE ──────── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #0b1220 0%, #0e1f3d 60%, #0b1220 100%);
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(30,64,128,0.15) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(30,64,128,0.15) 40px);
+  }
+  .cover-band {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--orange), #fbbf24, var(--orange));
+  }
+  .cover-band-b {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--orange), #fbbf24, var(--orange));
+  }
+  .cover-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    padding: 60px 40px;
+  }
+  .cover-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .cover-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .cover-title span { color: var(--orange); display: block; }
+  .cover-subtitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 6px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+  .cover-profiles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 60px;
+  }
+  .cover-badge {
+    background: rgba(30,64,128,0.4);
+    border: 1px solid rgba(56,189,248,0.25);
+    border-radius: 4px;
+    padding: 6px 16px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--accent);
+  }
+  .cover-svg {
+    position: absolute;
+    right: 40px;
+    bottom: 60px;
+    opacity: 0.06;
+  }
+  .cover-info {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    font-size: 13px;
+    color: var(--muted);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 32px;
+  }
+  .cover-info strong { color: var(--text); }
+
+  /* ──────── NAV / TOC ──────── */
+  .toc-page {
+    min-height: 100vh;
+    padding: 80px 60px;
+    background: var(--dark);
+    page-break-after: always;
+  }
+  .section-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .page-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 40px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--orange);
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .toc-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    text-decoration: none;
+  }
+  .toc-item:hover {
+    border-color: var(--orange);
+    background: rgba(249,115,22,0.06);
+  }
+  .toc-icon { width: 48px; height: 48px; flex-shrink: 0; }
+  .toc-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+  .toc-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* ──────── REESTRUCTURACIÓN DE PANTALLA (FULL SCREEN SCROLL) ──────── */
+  .profile-section {
+    padding: 0 !important;
+    background: var(--navy);
+    page-break-before: always;
+  }
+
+  .pantalla-intro {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 80px;
+    position: relative;
+  }
+
+  .pantalla-tabla {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 80px;
+    background: rgba(0, 0, 0, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .profile-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 60px;
+    align-items: start;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    border-bottom: none !important;
+  }
+
+  .profile-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 100px;
+    font-weight: 900;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .profile-name span { color: var(--orange); }
+  .profile-full {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  .uses-title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .uses-text {
+    color: var(--text);
+    line-height: 1.8;
+    max-width: 700px;
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+  
+  /* Etiquetas Visuales Agrandadas (Ya no son botones interactivos) */
+  .uses-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .use-tag {
+    background: rgba(249,115,22,0.12);
+    border: 1px solid rgba(249,115,22,0.5);
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 18px;
+    color: var(--orange);
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 1px;
+    display: inline-block;
+  }
+
+  .section-diagram { text-align: center; }
+
+  .diagram-container {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    display: inline-block;
+  }
+  .diagram-caption {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 12px;
+    text-transform: uppercase;
+  }
+
+  .scroll-arrow {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--orange);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+    40% { transform: translate(-50%, -10px); }
+    60% { transform: translate(-50%, -5px); }
+  }
+
+  /* ──────── DATA TABLE OPTIMIZADA ──────── */
+  .table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin-bottom: 0 !important;
+    background: var(--table-even);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 15px;
+    min-width: 950px; 
+  }
+
+  .table-section-head {
+    background: var(--orange);
+    color: #000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+  }
+
+  thead tr:first-child th {
+    background: var(--table-head);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    padding: 25px 10px;
+    text-transform: uppercase;
+    border-bottom: 4px solid var(--orange);
+  }
+
+  thead tr.units-row th {
+    background: rgba(10, 20, 40, 0.95);
+    color: var(--accent);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 18px 8px;
+    border-bottom: 2px solid var(--border);
+    text-transform: none;
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 16px 10px;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-family: 'Share Tech Mono', monospace;
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+  }
+
+  tbody td:first-child {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--orange);
+    text-align: left;
+    padding-left: 25px;
+    background: var(--card);
+    position: sticky;
+    left: 0;
+    z-index: 10;
+    border-right: 1px solid var(--border);
+  }
+
+  tbody tr:nth-child(odd) { background: var(--table-odd); }
+  tbody tr:nth-child(even) { background: var(--table-even); }
+
+  tbody tr:hover td { 
+    background: rgba(56, 189, 248, 0.15) !important; 
+    color: var(--white);
+  }
+
+  .col-group-start { border-left: 2px solid rgba(56,189,248,0.3); }
+  .col-group-start-y { border-left: 2px solid rgba(34,211,160,0.3); }
+
+  /* ──────── STEEL DECK SPECIAL ──────── */
+  .spec-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .spec-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+  }
+  .spec-val {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .spec-lbl {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* ──────── PRINT ──────── */
+  @media print {
+    .cover, .toc-page, .profile-section { page-break-after: always; }
+    body { background: white; color: #111; }
+    .cover { background: #0b1220; }
+    .profile-section { background: white; }
+    .pantalla-intro, .pantalla-tabla { min-height: auto; padding: 20px; }
+    .scroll-arrow { display: none; }
+    .use-tag { border: 1px solid #ccc; color: #333; background: #fff; padding: 4px 8px; font-size: 12px; }
+    .prop-card { background: #f5f5f5; border-color: #ddd; }
+    .table-wrapper { border-color: #ccc; box-shadow: none; margin-bottom: 40px !important; }
+    thead tr:first-child th { background: #1a2e50; color: white; border-bottom: 2px solid #000; }
+    thead tr.units-row th { background: #f0f0f0; color: #333; }
+    tbody tr:nth-child(odd) { background: #f9f9f9; }
+    tbody tr:nth-child(even) { background: #ffffff; }
+    tbody td { color: #111; border-bottom: 1px solid #ddd; }
+    tbody td:first-child { color: #000; background: #fff; border-right: 1px solid #ccc; }
+  }
+
+  /* ──────── RESPONSIVE ──────── */
+  @media (max-width: 768px) {
+    .profile-header { grid-template-columns: 1fr; gap: 30px; }
+    .pantalla-intro, .pantalla-tabla { padding: 40px 20px; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .profile-name { font-size: 60px; }
+    .profile-full { font-size: 20px; }
+  }
+
+  /* ──────── MODERN DOT NAV ──────── */
+  .dot-nav {
+    position: fixed;
+    top: 50%;
+    right: 24px;
+    transform: translateY(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .dot-nav a {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    transition: 0.25s;
+  }
+  .dot-nav a:hover {
+    background: var(--orange);
+    transform: scale(1.4);
+  }
+  .dot-nav a::after {
+    content: attr(data-label);
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--dark);
+    color: var(--white);
+    padding: 6px 10px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s;
+    border: 1px solid var(--border);
+  }
+  .dot-nav a:hover::after { opacity: 1; }
+  .dot-nav a.active {
+    background: var(--orange);
+    box-shadow: 0 0 0 4px rgba(249,115,22,0.2);
+  }
+  @media (max-width: 768px) { .dot-nav { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="dot-nav">
+  <a href="#inicio" data-label="Inicio"></a>
+  <a href="#ipe" data-label="IPE"></a>
+  <a href="#heb" data-label="HEB"></a>
+  <a href="#inp" data-label="INP"></a>
+  <a href="#unp" data-label="UNP"></a>
+  <a href="#upe" data-label="UPE"></a>
+  <a href="#perfilc" data-label="Perfil C"></a>
+  <a href="#perfilg" data-label="Perfil G/Z"></a>
+  <a href="#tubulares" data-label="Tubulares"></a>
+  <a href="#steeldeck" data-label="Steel Deck"></a>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     COVER PAGE
+═══════════════════════════════════════════════ -->
+<div class="cover" id="inicio">
+  <div class="cover-band"></div>
+  <div class="cover-band-b"></div>
+
+  <svg class="cover-svg" width="400" height="600" viewBox="0 0 400 600">
+    <rect x="50" y="0" width="300" height="60" fill="white"/>
+    <rect x="170" y="60" width="60" height="480" fill="white"/>
+    <rect x="50" y="540" width="300" height="60" fill="white"/>
+  </svg>
+
+  <div class="cover-content">
+    <div class="cover-tag">Ingeniería Estructural · Ecuador · 2025</div>
+    <h1 class="cover-title">
+      Catálogo de
+      <span>Perfiles</span>
+      de Acero
+    </h1>
+    <div class="cover-subtitle">Mercado Ecuatoriano</div>
+
+    <div class="cover-profiles">
+      <span class="cover-badge">IPE</span>
+      <span class="cover-badge">HEB</span>
+      <span class="cover-badge">INP</span>
+      <span class="cover-badge">UNP</span>
+      <span class="cover-badge">UPE</span>
+      <span class="cover-badge">PERFIL C</span>
+      <span class="cover-badge">PERFIL G</span>
+      <span class="cover-badge">TUBULARES</span>
+      <span class="cover-badge">STEEL DECK</span>
+    </div>
+
+    <div class="cover-info">
+      <div><strong>Asignatura:</strong> Construcciones IV</div>
+      <div><strong>Norma:</strong> NEC-SE-AC / AISC</div>
+      <div><strong>Realizado por:</strong> Esteban Ortiz P.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     TABLE OF CONTENTS
+═══════════════════════════════════════════════ -->
+<div class="toc-page">
+  <div class="section-label">Contenido</div>
+  <div class="page-title">Índice del Catálogo</div>
+
+  <div class="toc-grid">
+    <a href="#ipe" class="toc-item">
+      <svg class="toc-icon" viewBox="0 0 48 48">
+        <rect x="4" y="4" width="40" height="8" fill="#f97316"/>
+        <rect x="20" y="12" width="8" height="24" fill="#f97316"/>
+        <rect x="4" y="36" width="40" height="8" fill="#f97316"/>
+      </svg>
+      <div>
+        <div class="toc-name">IPE</div>
+        <div class="toc-desc">Perfil I Europeo · Ala estrecha · IPE 80–600</div>
+      </div>
+    </a>
+    <a href="#heb" class="toc-item">
+      <svg class="toc-icon" viewBox="0 0 48 48">
+        <rect x="2" y="4" width="44" height="8" fill="#38bdf8"/>
+        <rect x="18" y="12" width="12" height="24" fill="#38bdf8"/>
+        <rect x="2" y="36" width="44" height="8" fill="#38bdf8"/>
+      </svg>
+      <div>
+        <div class="toc-name">HEB</div>
+        <div class="toc-desc">Perfil H Europeo · Ala ancha · HEB 100–600</div>
+      </div>
+    </a>
+    <a href="#inp" class="toc-item">
+      <svg class="toc-icon" viewBox="0 0 48 48">
+        <polygon points="6,4 42,4 42,12 26,12 26,36 42,36 42,44 6,44 6,36 22,36 22,12 6,12" fill="#22d3a0"/>
+      </svg>
+      <div>
+        <div class="toc-name">INP</div>
+        <div class="toc-desc">Perfil I Normal · Ala inclinada · INP 80–600</div>
+      </div>
+    </a>
+    <a href="#unp" class="toc-item">
+      <svg class="toc-icon" viewBox="0 0 48 48">
+        <polygon points="4,4 20,4 20,40 44,40 44,44 4,44" fill="#f97316"/>
+        <rect x="4" y="4" width="40" height="8" fill="#f97316"/>
+      </svg>
+      <div>
+        <div class="toc-name">UNP</div>
+        <div class="toc-desc">Canal U Normal · Ala inclinada · UNP 80–400</div>
+      </div>
+    </a>
+    <a href="#upe" class="toc-item">
+      <svg class="toc-icon" viewBox="0 0 48 48">
+        <rect x="4" y="4" width="8" height="40" fill="#38bdf8"/>
+        <rect x="4" y="4" width="36" height="8" fill="#38bdf8"/>
+        <rect x="4" y="36" width="36" height="8" fill="#38bdf8"/>
+      </svg>
+      <div>
+        <div class="toc-name">UPE</div>
+        <div class="toc-desc">Canal U Europeo · Ala paralela · UPE 80–400</div>
+      </div>
+    </a>
+    <a href="#perfilc" class="toc-item">
+      <svg class="toc-icon" viewBox="0 0 48 48">
+        <rect x="4" y="4" width="32" height="8" fill="#22d3a0"/>
+        <rect x="4" y="4" width="8" height="40" fill="#22d3a0"/>
+        <rect x="4" y="36" width="32" height="8" fill="#22d3a0"/>
+      </svg>
+      <div>
+        <div class="toc-name">PERFIL C</div>
+        <div class="toc-desc">Canal C Doblado en Frío · Correas y Viguetas</div>
+      </div>
+    </a>
+    <a href="#perfilg" class="toc-item">
+      <svg class="toc-icon" viewBox="0 0 48 48">
+        <polygon points="6,4 36,4 36,12 14,12 14,36 38,36 38,44 6,44 6,36" fill="#f97316"/>
+      </svg>
+      <div>
+        <div class="toc-name">PERFIL G / Z</div>
+        <div class="toc-desc">Perfil G o Z Doblado en Frío · Correas</div>
+      </div>
+    </a>
+    <a href="#tubulares" class="toc-item">
+      <svg class="toc-icon" viewBox="0 0 48 48">
+        <rect x="4" y="4" width="40" height="40" rx="4" fill="none" stroke="#38bdf8" stroke-width="8"/>
+      </svg>
+      <div>
+        <div class="toc-name">TUBULARES</div>
+        <div class="toc-desc">HSS Cuadrado, Rectangular y Circular</div>
+      </div>
+    </a>
+    <a href="#steeldeck" class="toc-item">
+      <svg class="toc-icon" viewBox="0 0 48 48">
+        <polygon points="0,24 8,12 16,24 24,12 32,24 40,12 48,24 48,36 0,36" fill="#f97316" opacity="0.8"/>
+        <rect x="0" y="34" width="48" height="6" fill="#38bdf8"/>
+      </svg>
+      <div>
+        <div class="toc-name">STEEL DECK</div>
+        <div class="toc-desc">Placa Colaborante · Losa Compuesta</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     01 · PERFIL IPE
+═══════════════════════════════════════════════ -->
+<div class="profile-section" id="ipe">
+  <div class="pantalla-intro">
+    <div class="section-label">01 — Perfiles de Acero Laminado</div>
+    <div class="profile-header">
+      <div>
+        <div class="profile-name">Perfil <span>IPE</span></div>
+        <div class="profile-full">European I-Beam · Parallel Flange</div>
+        <div class="uses-title">Usos en la Construcción</div>
+        <div class="uses-text">
+          El perfil IPE es el perfil I más utilizado en estructuras metálicas de edificios. Su geometría
+          con alas paralelas y alma esbelta lo hace ideal para resistir momentos flectores en vigas
+          y cargas axiales en columnas de mediana escala.
+        </div>
+        <div class="uses-list">
+          <span class="use-tag">Vigas principales</span>
+          <span class="use-tag">Vigas secundarias</span>
+          <span class="use-tag">Columnas</span>
+          <span class="use-tag">Marcos rígidos</span>
+          <span class="use-tag">Dinteles</span>
+          <span class="use-tag">Pórticos</span>
+          <span class="use-tag">Escaleras metálicas</span>
+          <span class="use-tag">Entrepisos</span>
+        </div>
+      </div>
+      <div class="section-diagram">
+        <div class="diagram-container">
+          <svg width="200" height="240" viewBox="0 0 200 240">
+            <line x1="100" y1="10" x2="100" y2="230" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="20" y1="120" x2="180" y2="120" stroke="#22d3a0" stroke-width="1" stroke-dasharray="4,4"/>
+            <rect x="40" y="20" width="120" height="22" fill="#f97316" rx="1"/>
+            <rect x="91" y="42" width="18" height="136" fill="#d97706"/>
+            <rect x="40" y="178" width="120" height="22" fill="#f97316" rx="1"/>
+            <line x1="18" y1="20" x2="18" y2="200" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="13" y1="20" x2="23" y2="20" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="13" y1="200" x2="23" y2="200" stroke="#6b8099" stroke-width="0.8"/>
+            <text x="8" y="115" fill="#6b8099" font-size="11" font-family="monospace" text-anchor="middle" transform="rotate(-90 8 115)">h</text>
+            <line x1="40" y1="215" x2="160" y2="215" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="40" y1="210" x2="40" y2="220" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="160" y1="210" x2="160" y2="220" stroke="#6b8099" stroke-width="0.8"/>
+            <text x="100" y="228" fill="#6b8099" font-size="11" font-family="monospace" text-anchor="middle">b</text>
+            <text x="168" y="33" fill="#6b8099" font-size="10" font-family="monospace">tf</text>
+            <text x="115" y="115" fill="#6b8099" font-size="10" font-family="monospace">tw</text>
+            <text x="175" y="117" fill="#22d3a0" font-size="12" font-family="monospace">x</text>
+            <text x="104" y="14" fill="#38bdf8" font-size="12" font-family="monospace">y</text>
+          </svg>
+          <div class="diagram-caption">Sección transversal IPE</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-arrow">↓ Desliza para ver la tabla ↓</div>
+  </div>
+
+  <div class="pantalla-tabla">
+    <div class="table-wrapper">
+      <table id="ipe-table">
+        <thead>
+          <tr>
+            <th colspan="1" class="axis-gen">PERFIL</th>
+            <th colspan="4" class="axis-dim">DIMENSIONES</th>
+            <th colspan="2" class="axis-gen">GENERALES</th>
+            <th colspan="3" class="axis-x">EJE X–X (Fuerte)</th>
+            <th colspan="3" class="axis-y">EJE Y–Y (Débil)</th>
+          </tr>
+          <tr class="units-row">
+            <th>—</th>
+            <th>h (mm)</th><th>b (mm)</th><th>tw (mm)</th><th>tf (mm)</th>
+            <th>A (cm²)</th><th>P (kg/m)</th>
+            <th class="col-group-start">Ix (cm⁴)</th><th>Wx (cm³)</th><th>ix (cm)</th>
+            <th class="col-group-start-y">Iy (cm⁴)</th><th>Wy (cm³)</th><th>iy (cm)</th>
+          </tr>
+        </thead>
+        <tbody id="ipe-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     02 · PERFIL HEB
+═══════════════════════════════════════════════ -->
+<div class="profile-section" id="heb">
+  <div class="pantalla-intro">
+    <div class="section-label">02 — Perfiles de Acero Laminado</div>
+    <div class="profile-header">
+      <div>
+        <div class="profile-name">Perfil <span>HEB</span></div>
+        <div class="profile-full">Wide Flange H-Beam · Heavy Series</div>
+        <div class="uses-title">Usos en la Construcción</div>
+        <div class="uses-text">
+          El perfil HEB posee alas anchas y gruesas que le confieren excelente rigidez biaxial. 
+          Es el perfil de referencia para columnas en estructuras de acero, capaz de absorber
+          cargas axiales elevadas y momentos en ambas direcciones.
+        </div>
+        <div class="uses-list">
+          <span class="use-tag">Columnas principales</span>
+          <span class="use-tag">Pilares</span>
+          <span class="use-tag">Marcos rígidos</span>
+          <span class="use-tag">Vigas de gran carga</span>
+          <span class="use-tag">Pórticos industriales</span>
+          <span class="use-tag">Cimentaciones metálicas</span>
+          <span class="use-tag">Edificios de varios pisos</span>
+        </div>
+      </div>
+      <div class="section-diagram">
+        <div class="diagram-container">
+          <svg width="220" height="240" viewBox="0 0 220 240">
+            <line x1="110" y1="10" x2="110" y2="230" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="20" y1="120" x2="200" y2="120" stroke="#22d3a0" stroke-width="1" stroke-dasharray="4,4"/>
+            <rect x="30" y="20" width="160" height="24" fill="#38bdf8" rx="1"/>
+            <rect x="101" y="44" width="18" height="132" fill="#1e90c0"/>
+            <rect x="30" y="176" width="160" height="24" fill="#38bdf8" rx="1"/>
+            <line x1="16" y1="20" x2="16" y2="200" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="11" y1="20" x2="21" y2="20" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="11" y1="200" x2="21" y2="200" stroke="#6b8099" stroke-width="0.8"/>
+            <text x="6" y="115" fill="#6b8099" font-size="11" font-family="monospace" text-anchor="middle" transform="rotate(-90 6 115)">h</text>
+            <line x1="30" y1="214" x2="190" y2="214" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="30" y1="209" x2="30" y2="219" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="190" y1="209" x2="190" y2="219" stroke="#6b8099" stroke-width="0.8"/>
+            <text x="110" y="228" fill="#6b8099" font-size="11" font-family="monospace" text-anchor="middle">b</text>
+            <text x="196" y="34" fill="#6b8099" font-size="10" font-family="monospace">tf</text>
+            <text x="124" y="115" fill="#6b8099" font-size="10" font-family="monospace">tw</text>
+            <text x="192" y="117" fill="#22d3a0" font-size="12" font-family="monospace">x</text>
+            <text x="114" y="14" fill="#38bdf8" font-size="12" font-family="monospace">y</text>
+          </svg>
+          <div class="diagram-caption">Sección transversal HEB</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-arrow">↓ Desliza para ver la tabla ↓</div>
+  </div>
+
+  <div class="pantalla-tabla">
+    <div class="table-wrapper">
+      <table id="heb-table">
+        <thead>
+          <tr>
+            <th colspan="1" class="axis-gen">PERFIL</th>
+            <th colspan="4" class="axis-dim">DIMENSIONES</th>
+            <th colspan="2" class="axis-gen">GENERALES</th>
+            <th colspan="3" class="axis-x">EJE X–X (Fuerte)</th>
+            <th colspan="3" class="axis-y">EJE Y–Y (Débil)</th>
+          </tr>
+          <tr class="units-row">
+            <th>—</th>
+            <th>h (mm)</th><th>b (mm)</th><th>tw (mm)</th><th>tf (mm)</th>
+            <th>A (cm²)</th><th>P (kg/m)</th>
+            <th class="col-group-start">Ix (cm⁴)</th><th>Wx (cm³)</th><th>ix (cm)</th>
+            <th class="col-group-start-y">Iy (cm⁴)</th><th>Wy (cm³)</th><th>iy (cm)</th>
+          </tr>
+        </thead>
+        <tbody id="heb-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     03 · PERFIL INP
+═══════════════════════════════════════════════ -->
+<div class="profile-section" id="inp">
+  <div class="pantalla-intro">
+    <div class="section-label">03 — Perfiles de Acero Laminado</div>
+    <div class="profile-header">
+      <div>
+        <div class="profile-name">Perfil <span>INP</span></div>
+        <div class="profile-full">I-Beam Normal · Tapered Flange (DIN 1025)</div>
+        <div class="uses-title">Usos en la Construcción</div>
+        <div class="uses-text">
+          El perfil INP (también llamado IPN) es el perfil I clásico de la norma DIN, con alas inclinadas
+          hacia el interior. Posee menor inercia que el HEB pero es económico y muy difundido en
+          construcciones industriales y edificaciones de mediana altura.
+        </div>
+        <div class="uses-list">
+          <span class="use-tag">Vigas de entrepiso</span>
+          <span class="use-tag">Correas de cubierta</span>
+          <span class="use-tag">Columnas livianas</span>
+          <span class="use-tag">Estructuras industriales</span>
+          <span class="use-tag">Grúas viajeras</span>
+          <span class="use-tag">Pasarelas</span>
+          <span class="use-tag">Edificaciones menores</span>
+        </div>
+      </div>
+      <div class="section-diagram">
+        <div class="diagram-container">
+          <svg width="200" height="240" viewBox="0 0 200 240">
+            <line x1="100" y1="10" x2="100" y2="230" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="20" y1="120" x2="180" y2="120" stroke="#22d3a0" stroke-width="1" stroke-dasharray="4,4"/>
+            <polygon points="40,20 160,20 155,42 45,42" fill="#22d3a0"/>
+            <rect x="91" y="42" width="18" height="136" fill="#1aa080"/>
+            <polygon points="45,158 155,158 160,180 40,180" fill="#22d3a0"/>
+            <text x="175" y="117" fill="#22d3a0" font-size="12" font-family="monospace">x</text>
+            <text x="104" y="14" fill="#38bdf8" font-size="12" font-family="monospace">y</text>
+            <text x="6" y="115" fill="#6b8099" font-size="11" font-family="monospace" text-anchor="middle" transform="rotate(-90 6 115)">h</text>
+            <line x1="16" y1="20" x2="16" y2="180" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="11" y1="20" x2="21" y2="20" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="11" y1="180" x2="21" y2="180" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="40" y1="196" x2="160" y2="196" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="40" y1="191" x2="40" y2="201" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="160" y1="191" x2="160" y2="201" stroke="#6b8099" stroke-width="0.8"/>
+            <text x="100" y="212" fill="#6b8099" font-size="11" font-family="monospace" text-anchor="middle">b</text>
+          </svg>
+          <div class="diagram-caption">Sección transversal INP (ala inclinada)</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-arrow">↓ Desliza para ver la tabla ↓</div>
+  </div>
+
+  <div class="pantalla-tabla">
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="1" class="axis-gen">PERFIL</th>
+            <th colspan="4" class="axis-dim">DIMENSIONES</th>
+            <th colspan="2" class="axis-gen">GENERALES</th>
+            <th colspan="3" class="axis-x">EJE X–X (Fuerte)</th>
+            <th colspan="3" class="axis-y">EJE Y–Y (Débil)</th>
+          </tr>
+          <tr class="units-row">
+            <th>—</th>
+            <th>h (mm)</th><th>b (mm)</th><th>tw (mm)</th><th>tf (mm)</th>
+            <th>A (cm²)</th><th>P (kg/m)</th>
+            <th class="col-group-start">Ix (cm⁴)</th><th>Wx (cm³)</th><th>ix (cm)</th>
+            <th class="col-group-start-y">Iy (cm⁴)</th><th>Wy (cm³)</th><th>iy (cm)</th>
+          </tr>
+        </thead>
+        <tbody id="inp-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     04 · PERFIL UNP
+═══════════════════════════════════════════════ -->
+<div class="profile-section" id="unp">
+  <div class="pantalla-intro">
+    <div class="section-label">04 — Perfiles de Acero Laminado</div>
+    <div class="profile-header">
+      <div>
+        <div class="profile-name">Perfil <span>UNP</span></div>
+        <div class="profile-full">U-Channel Normal · Tapered Flange (DIN 1026)</div>
+        <div class="uses-title">Usos en la Construcción</div>
+        <div class="uses-text">
+          El perfil UNP es un canal en U con alas de espesor variable (inclinadas). Es el perfil
+          tipo canal más comercial en el mercado ecuatoriano. Se utiliza principalmente como
+          elemento secundario de la estructura, actuando en conjunto con vigas principales.
+        </div>
+        <div class="uses-list">
+          <span class="use-tag">Vigas secundarias</span>
+          <span class="use-tag">Correas laterales</span>
+          <span class="use-tag">Marcos de ventana</span>
+          <span class="use-tag">Largueros</span>
+          <span class="use-tag">Rieles de puente grúa</span>
+          <span class="use-tag">Bordes de losa</span>
+          <span class="use-tag">Arriostramientos</span>
+        </div>
+      </div>
+      <div class="section-diagram">
+        <div class="diagram-container">
+          <svg width="180" height="240" viewBox="0 0 180 240">
+            <line x1="90" y1="10" x2="90" y2="230" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="10" y1="120" x2="170" y2="120" stroke="#22d3a0" stroke-width="1" stroke-dasharray="4,4"/>
+            <rect x="30" y="30" width="16" height="180" fill="#f97316"/>
+            <polygon points="30,30 150,30 148,52 30,52" fill="#d97706"/>
+            <polygon points="30,158 148,158 150,180 30,180" fill="#d97706"/>
+            <circle cx="95" cy="120" r="3" fill="#f97316" opacity="0.5"/>
+            <text x="165" y="117" fill="#22d3a0" font-size="12" font-family="monospace">x</text>
+            <text x="93" y="14" fill="#38bdf8" font-size="12" font-family="monospace">y</text>
+            <line x1="16" y1="30" x2="16" y2="180" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="11" y1="30" x2="21" y2="30" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="11" y1="180" x2="21" y2="180" stroke="#6b8099" stroke-width="0.8"/>
+            <text x="6" y="110" fill="#6b8099" font-size="11" font-family="monospace" transform="rotate(-90 6 110)">h</text>
+            <line x1="30" y1="195" x2="150" y2="195" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="30" y1="190" x2="30" y2="200" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="150" y1="190" x2="150" y2="200" stroke="#6b8099" stroke-width="0.8"/>
+            <text x="90" y="210" fill="#6b8099" font-size="11" font-family="monospace" text-anchor="middle">b</text>
+          </svg>
+          <div class="diagram-caption">Sección transversal UNP (ala inclinada)</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-arrow">↓ Desliza para ver la tabla ↓</div>
+  </div>
+
+  <div class="pantalla-tabla">
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="1" class="axis-gen">PERFIL</th>
+            <th colspan="4" class="axis-dim">DIMENSIONES</th>
+            <th colspan="2" class="axis-gen">GENERALES</th>
+            <th colspan="3" class="axis-x">EJE X–X (Fuerte)</th>
+            <th colspan="3" class="axis-y">EJE Y–Y (Débil)</th>
+          </tr>
+          <tr class="units-row">
+            <th>—</th>
+            <th>h (mm)</th><th>b (mm)</th><th>tw (mm)</th><th>tf (mm)</th>
+            <th>A (cm²)</th><th>P (kg/m)</th>
+            <th class="col-group-start">Ix (cm⁴)</th><th>Wx (cm³)</th><th>ix (cm)</th>
+            <th class="col-group-start-y">Iy (cm⁴)</th><th>Wy (cm³)</th><th>iy (cm)</th>
+          </tr>
+        </thead>
+        <tbody id="unp-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     05 · PERFIL UPE
+═══════════════════════════════════════════════ -->
+<div class="profile-section" id="upe">
+  <div class="pantalla-intro">
+    <div class="section-label">05 — Perfiles de Acero Laminado</div>
+    <div class="profile-header">
+      <div>
+        <div class="profile-name">Perfil <span>UPE</span></div>
+        <div class="profile-full">U-Channel European · Parallel Flange</div>
+        <div class="uses-title">Usos en la Construcción</div>
+        <div class="uses-text">
+          El perfil UPE es la versión moderna del canal U con alas paralelas, lo que facilita
+          su unión con otras piezas. Posee una mejor relación resistencia/peso que el UNP
+          y se emplea como elemento secundario estructural en sistemas de edificación metálica.
+        </div>
+        <div class="uses-list">
+          <span class="use-tag">Correas de cubierta</span>
+          <span class="use-tag">Vigas de borde</span>
+          <span class="use-tag">Montantes de fachada</span>
+          <span class="use-tag">Estructuras secundarias</span>
+          <span class="use-tag">Plataformas</span>
+          <span class="use-tag">Mezzanines</span>
+        </div>
+      </div>
+      <div class="section-diagram">
+        <div class="diagram-container">
+          <svg width="180" height="240" viewBox="0 0 180 240">
+            <line x1="90" y1="10" x2="90" y2="230" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="10" y1="120" x2="170" y2="120" stroke="#22d3a0" stroke-width="1" stroke-dasharray="4,4"/>
+            <rect x="30" y="30" width="16" height="150" fill="#38bdf8"/>
+            <rect x="30" y="30" width="120" height="18" fill="#1e90c0"/>
+            <rect x="30" y="162" width="120" height="18" fill="#1e90c0"/>
+            <text x="165" y="117" fill="#22d3a0" font-size="12" font-family="monospace">x</text>
+            <text x="93" y="14" fill="#38bdf8" font-size="12" font-family="monospace">y</text>
+            <line x1="16" y1="30" x2="16" y2="180" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="11" y1="30" x2="21" y2="30" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="11" y1="180" x2="21" y2="180" stroke="#6b8099" stroke-width="0.8"/>
+            <text x="6" y="110" fill="#6b8099" font-size="11" font-family="monospace" transform="rotate(-90 6 110)">h</text>
+            <line x1="30" y1="196" x2="150" y2="196" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="30" y1="191" x2="30" y2="201" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="150" y1="191" x2="150" y2="201" stroke="#6b8099" stroke-width="0.8"/>
+            <text x="90" y="212" fill="#6b8099" font-size="11" font-family="monospace" text-anchor="middle">b</text>
+          </svg>
+          <div class="diagram-caption">Sección transversal UPE (ala paralela)</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-arrow">↓ Desliza para ver la tabla ↓</div>
+  </div>
+
+  <div class="pantalla-tabla">
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="1" class="axis-gen">PERFIL</th>
+            <th colspan="4" class="axis-dim">DIMENSIONES</th>
+            <th colspan="2" class="axis-gen">GENERALES</th>
+            <th colspan="3" class="axis-x">EJE X–X (Fuerte)</th>
+            <th colspan="3" class="axis-y">EJE Y–Y (Débil)</th>
+          </tr>
+          <tr class="units-row">
+            <th>—</th>
+            <th>h (mm)</th><th>b (mm)</th><th>tw (mm)</th><th>tf (mm)</th>
+            <th>A (cm²)</th><th>P (kg/m)</th>
+            <th class="col-group-start">Ix (cm⁴)</th><th>Wx (cm³)</th><th>ix (cm)</th>
+            <th class="col-group-start-y">Iy (cm⁴)</th><th>Wy (cm³)</th><th>iy (cm)</th>
+          </tr>
+        </thead>
+        <tbody id="upe-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     06 · PERFIL C (DOBLADO EN FRÍO)
+═══════════════════════════════════════════════ -->
+<div class="profile-section" id="perfilc">
+  <div class="pantalla-intro">
+    <div class="section-label">06 — Perfiles Doblados en Frío</div>
+    <div class="profile-header">
+      <div>
+        <div class="profile-name">Perfil <span>C</span></div>
+        <div class="profile-full">Cold-Formed Lipped Channel · Correas y Viguetas</div>
+        <div class="uses-title">Usos en la Construcción</div>
+        <div class="uses-text">
+          Los perfiles C doblados en frío son ampliamente utilizados como correas de cubierta,
+          viguetas de entrepiso y elementos secundarios de estructura. En Ecuador se fabrican
+          por empresas como DIPAC, ADELCA y NOVACERO en acero A36 y A572 Gr50.
+          El rigidizador en el labio aumenta la rigidez local del ala.
+        </div>
+        <div class="uses-list">
+          <span class="use-tag">Correas de cubierta</span>
+          <span class="use-tag">Viguetas de entrepiso</span>
+          <span class="use-tag">Montantes de pared</span>
+          <span class="use-tag">Muros de steel framing</span>
+          <span class="use-tag">Elementos de fachada</span>
+          <span class="use-tag">Cerchas livianas</span>
+        </div>
+      </div>
+      <div class="section-diagram">
+        <div class="diagram-container">
+          <svg width="200" height="240" viewBox="0 0 200 240">
+            <line x1="80" y1="10" x2="80" y2="230" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="10" y1="120" x2="190" y2="120" stroke="#22d3a0" stroke-width="1" stroke-dasharray="4,4"/>
+            <rect x="40" y="30" width="16" height="180" fill="#22d3a0"/>
+            <rect x="40" y="30" width="100" height="16" fill="#1aa080"/>
+            <rect x="40" y="194" width="100" height="16" fill="#1aa080"/>
+            <rect x="124" y="30" width="12" height="24" fill="#22d3a0"/>
+            <rect x="124" y="186" width="12" height="24" fill="#22d3a0"/>
+            <text x="182" y="117" fill="#22d3a0" font-size="12" font-family="monospace">x</text>
+            <text x="83" y="14" fill="#38bdf8" font-size="12" font-family="monospace">y</text>
+            <line x1="26" y1="30" x2="26" y2="210" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="21" y1="30" x2="31" y2="30" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="21" y1="210" x2="31" y2="210" stroke="#6b8099" stroke-width="0.8"/>
+            <text x="14" y="120" fill="#6b8099" font-size="10" font-family="monospace" transform="rotate(-90 14 120)">H</text>
+            <line x1="40" y1="222" x2="140" y2="222" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="40" y1="217" x2="40" y2="227" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="140" y1="217" x2="140" y2="227" stroke="#6b8099" stroke-width="0.8"/>
+            <text x="90" y="236" fill="#6b8099" font-size="10" font-family="monospace" text-anchor="middle">B</text>
+            <text x="155" y="42" fill="#6b8099" font-size="9" font-family="monospace">e</text>
+            <text x="145" y="46" fill="#6b8099" font-size="9" font-family="monospace">c</text>
+          </svg>
+          <div class="diagram-caption">Sección C (lipped channel) — Doblado en frío</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-arrow">↓ Desliza para ver la tabla ↓</div>
+  </div>
+
+  <div class="pantalla-tabla">
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="1" class="axis-gen">PERFIL</th>
+            <th colspan="4" class="axis-dim">DIMENSIONES</th>
+            <th colspan="2" class="axis-gen">GENERALES</th>
+            <th colspan="3" class="axis-x">EJE X–X (Fuerte)</th>
+            <th colspan="3" class="axis-y">EJE Y–Y (Débil)</th>
+          </tr>
+          <tr class="units-row">
+            <th>—</th>
+            <th>H (mm)</th><th>B (mm)</th><th>C (mm)</th><th>e (mm)</th>
+            <th>A (cm²)</th><th>P (kg/m)</th>
+            <th class="col-group-start">Ix (cm⁴)</th><th>Wx (cm³)</th><th>ix (cm)</th>
+            <th class="col-group-start-y">Iy (cm⁴)</th><th>Wy (cm³)</th><th>iy (cm)</th>
+          </tr>
+        </thead>
+        <tbody id="c-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     07 · PERFIL G / Z
+═══════════════════════════════════════════════ -->
+<div class="profile-section" id="perfilg">
+  <div class="pantalla-intro">
+    <div class="section-label">07 — Perfiles Doblados en Frío</div>
+    <div class="profile-header">
+      <div>
+        <div class="profile-name">Perfil <span>G / Z</span></div>
+        <div class="profile-full">Cold-Formed Z-Section · Correas Continuas</div>
+        <div class="uses-title">Usos en la Construcción</div>
+        <div class="uses-text">
+          El perfil G (o Z) doblado en frío presenta geometría asimétrica que permite la superposición
+          de secciones en cubierta, creando sistemas continuos de correas con mayor capacidad portante.
+          Es ideal para cubiertas de gran luz. Las alas van en sentidos opuestos, lo que le da mayor
+          rigidez al sistema de entramado.
+        </div>
+        <div class="uses-list">
+          <span class="use-tag">Correas continuas de cubierta</span>
+          <span class="use-tag">Sistemas Lap-joint</span>
+          <span class="use-tag">Correas de fachada</span>
+          <span class="use-tag">Naves industriales</span>
+          <span class="use-tag">Hangares</span>
+          <span class="use-tag">Bodegas</span>
+        </div>
+      </div>
+      <div class="section-diagram">
+        <div class="diagram-container">
+          <svg width="200" height="240" viewBox="0 0 200 240">
+            <line x1="100" y1="10" x2="100" y2="230" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="10" y1="120" x2="190" y2="120" stroke="#22d3a0" stroke-width="1" stroke-dasharray="4,4"/>
+            <rect x="92" y="30" width="16" height="180" fill="#f97316"/>
+            <rect x="92" y="30" width="80" height="16" fill="#d97706"/>
+            <rect x="156" y="30" width="12" height="24" fill="#f97316"/>
+            <rect x="28" y="194" width="80" height="16" fill="#d97706"/>
+            <rect x="28" y="186" width="12" height="24" fill="#f97316"/>
+            <text x="182" y="117" fill="#22d3a0" font-size="12" font-family="monospace">x</text>
+            <text x="103" y="14" fill="#38bdf8" font-size="12" font-family="monospace">y</text>
+            <line x1="26" y1="30" x2="26" y2="210" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="21" y1="30" x2="31" y2="30" stroke="#6b8099" stroke-width="0.8"/>
+            <line x1="21" y1="210" x2="31" y2="210" stroke="#6b8099" stroke-width="0.8"/>
+            <text x="14" y="120" fill="#6b8099" font-size="10" font-family="monospace" transform="rotate(-90 14 120)">H</text>
+            <text x="155" y="50" fill="#6b8099" font-size="9" font-family="monospace">B</text>
+            <text x="35" y="188" fill="#6b8099" font-size="9" font-family="monospace">B</text>
+          </svg>
+          <div class="diagram-caption">Sección G / Z — Doblado en frío</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-arrow">↓ Desliza para ver la tabla ↓</div>
+  </div>
+
+  <div class="pantalla-tabla">
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="1" class="axis-gen">PERFIL</th>
+            <th colspan="4" class="axis-dim">DIMENSIONES</th>
+            <th colspan="2" class="axis-gen">GENERALES</th>
+            <th colspan="3" class="axis-x">EJE X–X (Fuerte)</th>
+            <th colspan="3" class="axis-y">EJE Y–Y (Débil)</th>
+          </tr>
+          <tr class="units-row">
+            <th>—</th>
+            <th>H (mm)</th><th>B (mm)</th><th>C (mm)</th><th>e (mm)</th>
+            <th>A (cm²)</th><th>P (kg/m)</th>
+            <th class="col-group-start">Ix (cm⁴)</th><th>Wx (cm³)</th><th>ix (cm)</th>
+            <th class="col-group-start-y">Iy (cm⁴)</th><th>Wy (cm³)</th><th>iy (cm)</th>
+          </tr>
+        </thead>
+        <tbody id="g-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     08 · TUBULARES
+═══════════════════════════════════════════════ -->
+<div class="profile-section" id="tubulares">
+  <div class="pantalla-intro">
+    <div class="section-label">08 — Secciones Huecas Estructurales (HSS)</div>
+    <div class="profile-header">
+      <div>
+        <div class="profile-name">Perfil <span>Tubular</span></div>
+        <div class="profile-full">Hollow Structural Section · Square · Rectangular · Circular</div>
+        <div class="uses-title">Usos en la Construcción</div>
+        <div class="uses-text">
+          Las secciones huecas estructurales (HSS) son extremadamente eficientes para columnas,
+          diagonales de arriostramiento y miembros de cerchas. Su geometría cerrada proporciona
+          excelente resistencia a la torsión y distribución simétrica de propiedades respecto a
+          todos los ejes. En Ecuador se comercializan bajo norma ASTM A500 y NTE INEN.
+        </div>
+        <div class="uses-list">
+          <span class="use-tag">Columnas</span>
+          <span class="use-tag">Diagonales de arriostramiento</span>
+          <span class="use-tag">Cerchas espaciales</span>
+          <span class="use-tag">Ménsulas</span>
+          <span class="use-tag">Marcos de ventana</span>
+          <span class="use-tag">Estructuras de fachada</span>
+          <span class="use-tag">Postes</span>
+          <span class="use-tag">Pilares de cubierta</span>
+        </div>
+      </div>
+      <div class="section-diagram" style="display:flex;gap:16px;align-items:start;">
+        <div class="diagram-container">
+          <svg width="120" height="140" viewBox="0 0 120 140">
+            <rect x="15" y="15" width="90" height="90" rx="4" fill="none" stroke="#38bdf8" stroke-width="12"/>
+            <line x1="60" y1="5" x2="60" y2="115" stroke="#38bdf8" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.5"/>
+            <line x1="5" y1="60" x2="115" y2="60" stroke="#22d3a0" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.5"/>
+            <text x="60" y="130" fill="#6b8099" font-size="10" font-family="monospace" text-anchor="middle">SHS (□)</text>
+          </svg>
+          <div class="diagram-caption">Cuadrado</div>
+        </div>
+        <div class="diagram-container">
+          <svg width="150" height="120" viewBox="0 0 150 120">
+            <rect x="10" y="20" width="130" height="70" rx="4" fill="none" stroke="#f97316" stroke-width="12"/>
+            <line x1="75" y1="5" x2="75" y2="105" stroke="#38bdf8" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.5"/>
+            <line x1="5" y1="55" x2="145" y2="55" stroke="#22d3a0" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.5"/>
+            <text x="75" y="116" fill="#6b8099" font-size="10" font-family="monospace" text-anchor="middle">RHS (▭)</text>
+          </svg>
+          <div class="diagram-caption">Rectangular</div>
+        </div>
+        <div class="diagram-container">
+          <svg width="120" height="140" viewBox="0 0 120 140">
+            <circle cx="60" cy="60" r="45" fill="none" stroke="#22d3a0" stroke-width="12"/>
+            <line x1="60" y1="5" x2="60" y2="115" stroke="#38bdf8" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.5"/>
+            <line x1="5" y1="60" x2="115" y2="60" stroke="#22d3a0" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.5"/>
+            <text x="60" y="130" fill="#6b8099" font-size="10" font-family="monospace" text-anchor="middle">CHS (○)</text>
+          </svg>
+          <div class="diagram-caption">Circular</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-arrow">↓ Desliza para ver la tabla ↓</div>
+  </div>
+
+  <div class="pantalla-tabla" style="justify-content: flex-start; padding-top: 40px; overflow-y: auto;">
+    <!-- SHS Table -->
+    <div class="section-label" style="margin-bottom:8px;">HSS Cuadrado (SHS)</div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="1" class="axis-gen">SECCIÓN</th>
+            <th colspan="3" class="axis-dim">DIMENSIONES</th>
+            <th colspan="2" class="axis-gen">GENERALES</th>
+            <th colspan="3" class="axis-x">EJE X–X = Y–Y</th>
+            <th colspan="2" class="axis-gen">TORSIÓN</th>
+          </tr>
+          <tr class="units-row">
+            <th>b×b×e</th>
+            <th>b (mm)</th><th>e (mm)</th><th>R_ext (mm)</th>
+            <th>A (cm²)</th><th>P (kg/m)</th>
+            <th class="col-group-start">Ix (cm⁴)</th><th>Wx (cm³)</th><th>ix (cm)</th>
+            <th class="col-group-start-y">It (cm⁴)</th><th>Ct (cm³)</th>
+          </tr>
+        </thead>
+        <tbody id="shs-tbody"></tbody>
+      </table>
+    </div>
+
+    <!-- RHS Table -->
+    <div class="section-label" style="margin-bottom:8px;margin-top:24px;">HSS Rectangular (RHS)</div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="1" class="axis-gen">SECCIÓN</th>
+            <th colspan="3" class="axis-dim">DIMENSIONES</th>
+            <th colspan="2" class="axis-gen">GENERALES</th>
+            <th colspan="3" class="axis-x">EJE X–X (Fuerte)</th>
+            <th colspan="3" class="axis-y">EJE Y–Y (Débil)</th>
+          </tr>
+          <tr class="units-row">
+            <th>h×b×e</th>
+            <th>h (mm)</th><th>b (mm)</th><th>e (mm)</th>
+            <th>A (cm²)</th><th>P (kg/m)</th>
+            <th class="col-group-start">Ix (cm⁴)</th><th>Wx (cm³)</th><th>ix (cm)</th>
+            <th class="col-group-start-y">Iy (cm⁴)</th><th>Wy (cm³)</th><th>iy (cm)</th>
+          </tr>
+        </thead>
+        <tbody id="rhs-tbody"></tbody>
+      </table>
+    </div>
+
+    <!-- CHS Table -->
+    <div class="section-label" style="margin-bottom:8px;margin-top:24px;">HSS Circular (CHS)</div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="1" class="axis-gen">SECCIÓN</th>
+            <th colspan="3" class="axis-dim">DIMENSIONES</th>
+            <th colspan="2" class="axis-gen">GENERALES</th>
+            <th colspan="3" class="axis-x">EJE X–X = Y–Y</th>
+            <th colspan="2" class="axis-gen">TORSIÓN</th>
+          </tr>
+          <tr class="units-row">
+            <th>D×e</th>
+            <th>D (mm)</th><th>e (mm)</th><th>D/e</th>
+            <th>A (cm²)</th><th>P (kg/m)</th>
+            <th class="col-group-start">Ix (cm⁴)</th><th>Wx (cm³)</th><th>ix (cm)</th>
+            <th class="col-group-start-y">It (cm⁴)</th><th>Wt (cm³)</th>
+          </tr>
+        </thead>
+        <tbody id="chs-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     09 · STEEL DECK
+═══════════════════════════════════════════════ -->
+<div class="profile-section" id="steeldeck">
+  <div class="pantalla-intro">
+    <div class="section-label">09 — Placa Colaborante</div>
+    <div class="profile-header">
+      <div>
+        <div class="profile-name">Steel <span>Deck</span></div>
+        <div class="profile-full">Composite Deck Slab · Losa de Acero Colaborante</div>
+        <div class="uses-title">Usos en la Construcción</div>
+        <div class="uses-text">
+          La placa de acero colaborante (Steel Deck) actúa como encofrado permanente y refuerzo
+          positivo en losas compuestas acero-hormigón. Permite eliminar el encofrado de madera,
+          reducir tiempos de construcción y disminuir el peso propio del sistema de piso.
+          Se une a la estructura de acero mediante conectores de corte (shear studs).
+        </div>
+        <div class="uses-list">
+          <span class="use-tag">Losas compuestas de entrepiso</span>
+          <span class="use-tag">Cubierta de edificios</span>
+          <span class="use-tag">Mezzanines</span>
+          <span class="use-tag">Ampliaciones de pisos</span>
+          <span class="use-tag">Losas sobre vigas de acero</span>
+          <span class="use-tag">Sistemas de piso mixto</span>
+        </div>
+      </div>
+      <div class="section-diagram">
+        <div class="diagram-container">
+          <svg width="260" height="130" viewBox="0 0 260 130">
+            <rect x="0" y="0" width="260" height="60" fill="#8a9db0" opacity="0.3" rx="2"/>
+            <text x="130" y="35" fill="#8a9db0" font-size="11" font-family="monospace" text-anchor="middle">HORMIGÓN</text>
+            <polygon points="0,60 30,60 40,100 80,100 90,60 130,60 140,100 180,100 190,60 230,60 240,100 260,100 260,108 0,108" fill="#f97316"/>
+            <line x1="60" y1="20" x2="60" y2="60" stroke="#38bdf8" stroke-width="2"/>
+            <circle cx="60" cy="18" r="5" fill="#38bdf8"/>
+            <line x1="160" y1="20" x2="160" y2="60" stroke="#38bdf8" stroke-width="2"/>
+            <circle cx="160" cy="18" r="5" fill="#38bdf8"/>
+            <text x="10" y="120" fill="#6b8099" font-size="9" font-family="monospace">t (espesor)</text>
+            <text x="160" y="120" fill="#6b8099" font-size="9" font-family="monospace">hr (nervio)</text>
+            <line x1="0" y1="112" x2="80" y2="112" stroke="#6b8099" stroke-width="0.8"/>
+            <text x="40" y="126" fill="#6b8099" font-size="9" font-family="monospace" text-anchor="middle">paso (p)</text>
+          </svg>
+          <div class="diagram-caption">Sección tipo Steel Deck con losa colaborante</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-arrow">↓ Desliza para ver la tabla ↓</div>
+  </div>
+
+  <div class="pantalla-tabla">
+    <div class="spec-grid">
+      <div class="spec-box">
+        <div class="spec-val">0.76–1.2</div>
+        <div class="spec-lbl">Espesor (mm)</div>
+      </div>
+      <div class="spec-box">
+        <div class="spec-val">38–76</div>
+        <div class="spec-lbl">Altura nervio hr (mm)</div>
+      </div>
+      <div class="spec-box">
+        <div class="spec-val">150–300</div>
+        <div class="spec-lbl">Paso (mm)</div>
+      </div>
+      <div class="spec-box">
+        <div class="spec-val">G550</div>
+        <div class="spec-lbl">Acero (ASTM A653)</div>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th class="axis-gen">MODELO</th>
+            <th class="axis-dim">t (mm)</th>
+            <th class="axis-dim">hr (mm)</th>
+            <th class="axis-dim">Paso (mm)</th>
+            <th class="axis-dim">Ancho cub. (mm)</th>
+            <th class="axis-gen">P (kg/m²)</th>
+            <th class="col-group-start">Ix (cm⁴/m)</th>
+            <th>Wx+ (cm³/m)</th>
+            <th>Wx− (cm³/m)</th>
+            <th class="col-group-start-y">Losa mín (mm)</th>
+            <th>Losa máx (mm)</th>
+          </tr>
+        </thead>
+        <tbody id="deck-tbody"></tbody>
+      </table>
+    </div>
+
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;margin-top:20px;">
+      <div class="uses-title">NOTAS DE DISEÑO — STEEL DECK</div>
+      <div class="uses-text" style="margin-top:12px;">
+        <strong style="color:var(--accent);">Normas aplicables:</strong> AISC 360-22, ASCE 7-22, NEC-SE-AC (Ecuador), AWS D1.3 (soldadura de lámina).<br>
+        <strong style="color:var(--accent);">Conectores de corte:</strong> Pernos Nelson de ⅝" o ¾" diámetro, altura 75–100 mm, soldados por arco de zona.<br>
+        <strong style="color:var(--accent);">Malla electrosoldada:</strong> ARMEX 6×6 – W1.4×W1.4 (o equivalente) para control de fisuración.<br>
+        <strong style="color:var(--accent);">Recubrimiento mínimo:</strong> 19 mm sobre la cresta del nervio.<br>
+        <strong style="color:var(--accent);">Proveedores Ecuador:</strong> NOVACERO Steel Deck, CONDUIT-Acero, ANDEC Laminados.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT — Profile Data & Table Generation
+═══════════════════════════════════════════════ -->
+<script>
+// ── IPE DATA ─────────────────────────────────────────────────
+const IPE_DATA = [
+  ['IPE 80',  80,  46, 3.8, 5.2,  7.64,  6.0,    80.1,   20.0,  3.24,   8.49,  3.69, 1.05],
+  ['IPE 100',100,  55, 4.1, 5.7, 10.3,   8.1,   171,     34.2,  4.07,  15.9,   5.79, 1.24],
+  ['IPE 120',120,  64, 4.4, 6.3, 13.2,  10.4,   318,     53.0,  4.90,  27.7,   8.65, 1.45],
+  ['IPE 140',140,  73, 4.7, 6.9, 16.4,  12.9,   541,     77.3,  5.74,  44.9,  12.3,  1.65],
+  ['IPE 160',160,  82, 5.0, 7.4, 20.1,  15.8,   869,    109,    6.58,  68.3,  16.7,  1.84],
+  ['IPE 180',180,  91, 5.3, 8.0, 23.9,  18.8,  1320,    146,    7.42, 101,    22.2,  2.05],
+  ['IPE 200',200, 100, 5.6, 8.5, 28.5,  22.4,  1940,    194,    8.26, 142,    28.5,  2.24],
+  ['IPE 220',220, 110, 5.9, 9.2, 33.4,  26.2,  2770,    252,    9.11, 205,    37.3,  2.48],
+  ['IPE 240',240, 120, 6.2, 9.8, 39.1,  30.7,  3890,    324,    9.97, 284,    47.3,  2.69],
+  ['IPE 270',270, 135, 6.6,10.2, 45.9,  36.1,  5790,    429,   11.2,  420,    62.2,  3.02],
+  ['IPE 300',300, 150, 7.1,10.7, 53.8,  42.2,  8360,    557,   12.5,  604,    80.5,  3.35],
+  ['IPE 330',330, 160, 7.5,11.5, 62.6,  49.1, 11770,    713,   13.7,  788,    98.5,  3.55],
+  ['IPE 360',360, 170, 8.0,12.7, 72.7,  57.1, 16270,    904,   15.0, 1040,   123,    3.79],
+  ['IPE 400',400, 180, 8.6,13.5, 84.5,  66.3, 23130,   1160,   16.5, 1320,   146,    3.95],
+  ['IPE 450',450, 190, 9.4,14.6, 98.8,  77.6, 33740,   1500,   18.5, 1680,   176,    4.12],
+  ['IPE 500',500, 200,10.2,16.0,116,    90.7, 48200,   1930,   20.4, 2140,   214,    4.31],
+  ['IPE 550',550, 210,11.1,17.2,134,   106,   67120,   2440,   22.3, 2670,   254,    4.45],
+  ['IPE 600',600, 220,12.0,19.0,156,   122,   92080,   3070,   24.3, 3390,   308,    4.66],
+];
+
+// ── HEB DATA ─────────────────────────────────────────────────
+const HEB_DATA = [
+  ['HEB 100',100,100, 6.0,10.0, 26.0, 20.4,   450,   89.9,  4.16,  167,   33.5,  2.53],
+  ['HEB 120',120,120, 6.5,11.0, 34.0, 26.7,   864,  144,    5.04,  318,   52.9,  3.06],
+  ['HEB 140',140,140, 7.0,12.0, 43.0, 33.7,  1510,  216,    5.93,  550,   78.5,  3.58],
+  ['HEB 160',160,160, 8.0,13.0, 54.3, 42.6,  2490,  311,    6.78,  889,  111,    4.05],
+  ['HEB 180',180,180, 8.5,14.0, 65.3, 51.2,  3830,  426,    7.66, 1360,  151,    4.57],
+  ['HEB 200',200,200, 9.0,15.0, 78.1, 61.3,  5700,  570,    8.54, 2000,  200,    5.07],
+  ['HEB 220',220,220, 9.5,16.0, 91.0, 71.5,  8090,  736,    9.43, 2840,  258,    5.59],
+  ['HEB 240',240,240,10.0,17.0,106,   83.2, 11260,  938,   10.3,  3920,  327,    6.08],
+  ['HEB 260',260,260,10.0,17.5,118,   93.0, 14920, 1150,   11.2,  5130,  395,    6.58],
+  ['HEB 280',280,280,10.5,18.0,131,  103,   19270, 1380,   12.1,  6590,  471,    7.09],
+  ['HEB 300',300,300,11.0,19.0,149,  117,   25170, 1680,   13.0,  8560,  571,    7.58],
+  ['HEB 320',320,300,11.5,20.5,161,  127,   30820, 1930,   13.8,  9240,  616,    7.57],
+  ['HEB 340',340,300,12.0,21.5,171,  134,   36660, 2160,   14.6,  9690,  646,    7.53],
+  ['HEB 360',360,300,12.5,22.5,181,  142,   43190, 2400,   15.5, 10140,  676,    7.49],
+  ['HEB 400',400,300,13.5,24.0,198,  155,   57680, 2880,   17.1, 10820,  721,    7.40],
+  ['HEB 450',450,300,14.0,26.0,218,  171,   79890, 3550,   19.1, 11720,  781,    7.33],
+  ['HEB 500',500,300,14.5,28.0,239,  187,  107200, 4290,   21.2, 12620,  841,    7.27],
+  ['HEB 550',550,300,15.0,29.0,254,  199,  136700, 4970,   23.2, 13080,  872,    7.17],
+  ['HEB 600',600,300,15.5,30.0,270,  212,  171000, 5700,   25.2, 13530,  902,    7.08],
+];
+
+// ── INP DATA ─────────────────────────────────────────────────
+const INP_DATA = [
+  ['INP 80',  80, 42, 3.9, 5.9,  7.57,  5.94,   77.8,  19.5,  3.20,  6.29,  3.00, 0.91],
+  ['INP 100',100, 50, 4.5, 6.8, 10.6,   8.34,  171,    34.2,  4.01, 12.2,   4.88, 1.07],
+  ['INP 120',120, 58, 5.1, 7.7, 14.2,  11.1,   328,    54.7,  4.81, 21.5,   7.41, 1.23],
+  ['INP 140',140, 66, 5.7, 8.6, 18.2,  14.3,   573,    81.9,  5.61, 35.2,  10.7,  1.40],
+  ['INP 160',160, 74, 6.3, 9.5, 22.8,  17.9,   935,   117,    6.40, 54.7,  14.8,  1.55],
+  ['INP 180',180, 82, 6.9,10.4, 27.9,  21.9,  1450,   161,    7.20, 81.3,  19.8,  1.71],
+  ['INP 200',200, 90, 7.5,11.3, 33.5,  26.3,  2140,   214,    7.99,117,    26.0,  1.87],
+  ['INP 220',220, 98, 8.1,12.2, 39.5,  31.1,  3060,   278,    8.80,162,    33.1,  2.02],
+  ['INP 240',240,106, 8.7,13.1, 46.1,  36.2,  4250,   354,    9.59,221,    41.7,  2.19],
+  ['INP 260',260,113, 9.4,14.1, 53.3,  41.9,  5740,   442,   10.4, 288,    51.0,  2.32],
+  ['INP 280',280,119,10.1,15.2, 61.0,  47.9,  7590,   542,   11.1, 364,    61.2,  2.44],
+  ['INP 300',300,125,10.8,16.2, 69.0,  54.2,  9800,   653,   11.9, 451,    72.2,  2.56],
+  ['INP 320',320,131,11.5,17.3, 77.7,  61.0, 12510,   782,   12.7, 555,    84.7,  2.67],
+  ['INP 340',340,137,12.2,18.3, 86.7,  68.0, 15700,   923,   13.5, 674,    98.4,  2.79],
+  ['INP 360',360,143,13.0,19.5, 97.0,  76.1, 19610,  1090,   14.2, 818,   114,    2.90],
+  ['INP 380',380,149,13.7,20.5,107,    84.0, 24010,  1260,   15.0, 975,   131,    3.02],
+  ['INP 400',400,155,14.4,21.6,118,    92.4, 29210,  1460,   15.7,1160,   149,    3.13],
+  ['INP 450',450,170,16.2,24.3,147,   115,   45850,  2040,   17.7,1730,   203,    3.43],
+  ['INP 500',500,185,18.0,27.0,180,   141,   68740,  2750,   19.5,2480,   268,    3.72],
+  ['INP 550',550,200,19.0,30.0,214,   168,   99180,  3610,   21.5,3490,   349,    4.04],
+  ['INP 600',600,215,21.6,32.4,254,   199,  139000,  4630,   23.4,4670,   435,    4.29],
+];
+
+// ── UNP DATA ─────────────────────────────────────────────────
+const UNP_DATA = [
+  ['UNP 80',  80, 45, 6.0, 8.0, 11.0,  8.64,  106,    26.5,  3.10, 19.4,   6.36, 1.33],
+  ['UNP 100',100, 50, 6.0, 8.5, 13.5, 10.6,   206,    41.2,  3.91, 29.3,   8.49, 1.47],
+  ['UNP 120',120, 55, 7.0, 9.0, 17.0, 13.4,   364,    60.7,  4.63, 43.2,  11.1,  1.60],
+  ['UNP 140',140, 60, 7.0,10.0, 20.4, 16.0,   605,    86.4,  5.45, 62.7,  14.8,  1.75],
+  ['UNP 160',160, 65, 7.5,10.5, 24.0, 18.8,   925,   116,    6.21, 85.3,  18.3,  1.89],
+  ['UNP 180',180, 70, 8.0,11.0, 28.0, 22.0,  1350,   150,    6.95,114,    22.4,  2.02],
+  ['UNP 200',200, 75, 8.5,11.5, 32.2, 25.3,  1910,   191,    7.70,148,    27.0,  2.14],
+  ['UNP 220',220, 80, 9.0,12.5, 37.4, 29.4,  2690,   245,    8.48,197,    33.6,  2.30],
+  ['UNP 240',240, 85, 9.5,13.0, 42.3, 33.2,  3600,   300,    9.23,248,    39.6,  2.42],
+  ['UNP 260',260, 90,10.0,14.0, 48.3, 37.9,  4820,   371,    9.99,317,    47.7,  2.56],
+  ['UNP 280',280, 95,10.0,15.0, 53.3, 41.8,  6280,   448,   10.9, 399,    57.2,  2.74],
+  ['UNP 300',300,100,10.0,16.0, 58.8, 46.2,  8030,   535,   11.7, 495,    67.8,  2.90],
+  ['UNP 320',320,100,14.0,17.5, 75.8, 59.5, 10870,   679,   12.0, 597,    80.6,  2.81],
+  ['UNP 350',350,100,14.0,16.0, 77.3, 60.7, 13320,   762,   13.1, 570,    75.6,  2.72],
+  ['UNP 380',380,102,13.5,16.0, 80.4, 63.1, 17170,   904,   14.6, 615,    80.7,  2.77],
+  ['UNP 400',400,110,14.0,18.0, 91.5, 71.8, 23130,  1160,   15.9, 846,   103,    3.04],
+];
+
+// ── UPE DATA ─────────────────────────────────────────────────
+const UPE_DATA = [
+  ['UPE 80',  80, 50, 4.0, 7.0,  9.10,  7.14,  105,   26.2,  3.39, 26.8,   8.02, 1.72],
+  ['UPE 100',100, 55, 4.5, 7.5, 12.1,   9.49,  216,   43.3,  4.23, 43.1,  11.2,  1.89],
+  ['UPE 120',120, 60, 5.0, 8.0, 15.4,  12.1,   397,   66.2,  5.08, 65.4,  15.2,  2.06],
+  ['UPE 140',140, 65, 5.0, 8.5, 18.5,  14.5,   662,   94.6,  5.98, 97.6,  20.7,  2.30],
+  ['UPE 160',160, 70, 5.5, 9.0, 22.4,  17.6,  1060,  132,    6.88,139,    26.8,  2.49],
+  ['UPE 180',180, 75, 5.5, 9.5, 26.0,  20.4,  1600,  178,    7.85,193,    34.5,  2.72],
+  ['UPE 200',200, 80, 6.0,10.0, 30.9,  24.3,  2360,  236,    8.74,262,    43.3,  2.91],
+  ['UPE 220',220, 85, 6.0,10.5, 35.7,  28.0,  3390,  308,    9.74,352,    54.7,  3.14],
+  ['UPE 240',240, 90, 6.5,11.0, 41.4,  32.5,  4820,  402,   10.8, 462,    66.9,  3.34],
+  ['UPE 270',270, 95, 7.0,11.5, 50.1,  39.3,  7380,  547,   12.1, 609,    83.3,  3.49],
+  ['UPE 300',300,100, 7.5,12.0, 59.5,  46.7, 10820,  721,   13.5, 779,   101,    3.62],
+  ['UPE 330',330,105, 8.0,12.5, 69.7,  54.7, 15280,  926,   14.8, 987,   122,    3.76],
+  ['UPE 360',360,110, 8.5,13.0, 80.2,  63.0, 20900, 1160,   16.2,1220,   144,    3.90],
+  ['UPE 400',400,115, 9.0,13.5, 92.2,  72.4, 29140, 1457,   17.8,1500,   170,    4.03],
+];
+
+// ── PERFIL C DATA ─────────────────────────────────────────────
+const C_DATA = [
+  ['C 100×50×15×2', 100, 50,15, 2.0,  4.36,  3.42,  75.8,  15.2,  4.17, 13.2,  4.08, 1.74],
+  ['C 100×50×15×3', 100, 50,15, 3.0,  6.39,  5.02, 107,    21.4,  4.09, 18.4,  5.60, 1.70],
+  ['C 120×60×15×2', 120, 60,15, 2.0,  5.36,  4.21, 133,    22.2,  4.98, 23.0,  5.75, 2.07],
+  ['C 120×60×15×3', 120, 60,15, 3.0,  7.89,  6.19, 190,    31.7,  4.91, 32.5,  8.02, 2.03],
+  ['C 150×65×15×2', 150, 65,15, 2.0,  6.16,  4.84, 255,    34.0,  6.43, 31.7,  7.18, 2.27],
+  ['C 150×65×15×3', 150, 65,15, 3.0,  9.09,  7.14, 368,    49.1,  6.36, 45.5, 10.2,  2.24],
+  ['C 180×75×20×2', 180, 75,20, 2.0,  7.56,  5.93, 499,    55.4,  8.12, 57.1, 11.0,  2.75],
+  ['C 180×75×20×3', 180, 75,20, 3.0, 11.2,   8.78, 724,    80.4,  8.04, 82.4, 15.6,  2.71],
+  ['C 200×75×20×2', 200, 75,20, 2.0,  8.16,  6.41, 688,    68.8,  9.18, 59.8, 11.0,  2.71],
+  ['C 200×75×20×3', 200, 75,20, 3.0, 12.1,   9.50, 999,    99.9,  9.10, 86.4, 15.7,  2.67],
+  ['C 200×75×20×4', 200, 75,20, 4.0, 15.9,  12.5, 1296,   129.6,  9.03,111,   20.2,  2.64],
+  ['C 250×85×25×2', 250, 85,25, 2.0,  9.96,  7.82, 1331,   106,   11.6,  92.1, 15.4,  3.04],
+  ['C 250×85×25×3', 250, 85,25, 3.0, 14.8,  11.6, 1950,   156,   11.5, 134,   22.2,  3.01],
+  ['C 250×85×25×4', 250, 85,25, 4.0, 19.5,  15.3, 2540,   203,   11.4, 174,   28.6,  2.98],
+  ['C 300×100×25×3',300,100,25, 3.0, 17.3,  13.6, 3670,   245,   14.6, 249,   33.4,  3.79],
+  ['C 300×100×25×4',300,100,25, 4.0, 22.9,  17.9, 4810,   321,   14.5, 325,   43.3,  3.76],
+];
+
+// ── PERFIL G/Z DATA ───────────────────────────────────────────
+const G_DATA = [
+  ['G 100×50×15×2', 100, 50,15, 2.0,  4.36,  3.42,  82.1,  16.4,  4.34, 15.8,  4.90, 1.90],
+  ['G 120×60×15×2', 120, 60,15, 2.0,  5.36,  4.21, 144,    24.0,  5.18, 27.2,  6.88, 2.25],
+  ['G 150×65×15×2', 150, 65,15, 2.0,  6.16,  4.84, 276,    36.8,  6.69, 37.5,  8.66, 2.47],
+  ['G 150×65×15×3', 150, 65,15, 3.0,  9.09,  7.14, 399,    53.2,  6.63, 53.8, 12.3,  2.43],
+  ['G 180×75×20×2', 180, 75,20, 2.0,  7.56,  5.93, 543,    60.3,  8.47, 67.4, 13.0,  2.99],
+  ['G 180×75×20×3', 180, 75,20, 3.0, 11.2,   8.78, 787,    87.4,  8.39, 97.1, 18.5,  2.95],
+  ['G 200×75×20×2', 200, 75,20, 2.0,  8.16,  6.41, 748,    74.8,  9.57, 70.5, 13.1,  2.94],
+  ['G 200×75×20×3', 200, 75,20, 3.0, 12.1,   9.50,1088,   109,    9.49,102,   18.7,  2.90],
+  ['G 250×85×25×3', 250, 85,25, 3.0, 14.8,  11.6, 2117,   169,   11.97,158,   26.2,  3.27],
+  ['G 250×85×25×4', 250, 85,25, 4.0, 19.5,  15.3, 2760,   221,   11.90,206,   34.0,  3.25],
+  ['G 300×100×25×3',300,100,25, 3.0, 17.3,  13.6, 3988,   266,   15.2, 294,   39.4,  4.12],
+  ['G 300×100×25×4',300,100,25, 4.0, 22.9,  17.9, 5220,   348,   15.1, 384,   51.2,  4.09],
+];
+
+// ── SHS DATA ─────────────────────────────────────────────────
+const SHS_DATA = [
+  ['40×40×3',   40, 3.0, 4.5,  4.35,  3.41,   8.47,  4.24,  1.40, 14.2,  5.68],
+  ['50×50×3',   50, 3.0, 4.5,  5.55,  4.36,  17.8,   7.11,  1.79, 29.8,  9.54],
+  ['60×60×3',   60, 3.0, 4.5,  6.75,  5.30,  31.3,  10.4,   2.15, 52.4, 13.9],
+  ['60×60×4',   60, 4.0, 6.0,  8.77,  6.88,  39.5,  13.2,   2.12, 66.3, 17.6],
+  ['70×70×3',   70, 3.0, 4.5,  7.95,  6.24,  50.3,  14.4,   2.51, 84.3, 19.2],
+  ['80×80×3',   80, 3.0, 4.5,  9.15,  7.18,  76.8,  19.2,   2.90, 129,   25.7],
+  ['80×80×4',   80, 4.0, 6.0, 11.9,   9.37, 98.2,   24.5,   2.87, 165,   32.9],
+  ['80×80×5',   80, 5.0, 7.5, 14.6,  11.5,  118,    29.4,   2.84, 197,   39.6],
+  ['90×90×4',   90, 4.0, 6.0, 13.5,  10.6,  141,    31.3,   3.23, 236,   41.9],
+  ['100×100×4',100, 4.0, 6.0, 15.1,  11.8,  197,    39.4,   3.62, 329,   52.6],
+  ['100×100×5',100, 5.0, 7.5, 18.6,  14.6,  239,    47.7,   3.59, 399,   63.9],
+  ['100×100×6',100, 6.0, 9.0, 22.0,  17.3,  277,    55.4,   3.55, 464,   74.6],
+  ['120×120×4',120, 4.0, 6.0, 18.3,  14.4,  346,    57.6,   4.35, 578,   77.0],
+  ['120×120×5',120, 5.0, 7.5, 22.6,  17.8,  421,    70.2,   4.32, 705,   94.2],
+  ['120×120×6',120, 6.0, 9.0, 26.8,  21.1,  492,    82.1,   4.28, 824,  110],
+  ['140×140×5',140, 5.0, 7.5, 26.6,  20.9,  675,    96.4,   5.04,1132,  128],
+  ['150×150×5',150, 5.0, 7.5, 28.6,  22.5,  834,   111,     5.40,1396,  149],
+  ['150×150×6',150, 6.0, 9.0, 34.0,  26.7,  981,   131,     5.37,1645,  175],
+  ['160×160×5',160, 5.0, 7.5, 30.6,  24.0, 1020,   128,     5.78,1712,  171],
+  ['160×160×6',160, 6.0, 9.0, 36.5,  28.6, 1201,   150,     5.74,2015,  201],
+  ['180×180×6',180, 6.0, 9.0, 41.5,  32.6, 1742,   194,     6.48,2919,  258],
+  ['180×180×8',180, 8.0,12.0, 54.4,  42.7, 2240,   249,     6.41,3757,  334],
+  ['200×200×6',200, 6.0, 9.0, 46.4,  36.4, 2401,   240,     7.19,4023,  321],
+  ['200×200×8',200, 8.0,12.0, 61.0,  47.9, 3097,   310,     7.12,5196,  416],
+  ['200×200×10',200,10.0,15.0,74.9,  58.8, 3726,   373,     7.06,6265,  503],
+  ['250×250×8',250, 8.0,12.0, 77.0,  60.4, 6177,   494,     8.96,10350, 658],
+  ['250×250×10',250,10.0,15.0,95.0,  74.6, 7503,   600,     8.89,12600, 804],
+  ['300×300×8',300, 8.0,12.0, 93.0,  73.1,10800,   720,    10.79,18130, 964],
+  ['300×300×10',300,10.0,15.0,115,    90.4,13200,   879,    10.72,22200,1181],
+];
+
+// ── RHS DATA ─────────────────────────────────────────────────
+const RHS_DATA = [
+  ['80×40×3',   80, 40, 3.0,  6.15,  4.83,  43.9,  11.0,  2.67, 14.3,   7.14, 1.52],
+  ['80×40×4',   80, 40, 4.0,  7.97,  6.26,  55.5,  13.9,  2.64, 17.9,   8.95, 1.50],
+  ['100×50×3', 100, 50, 3.0,  7.95,  6.24,  93.9,  18.8,  3.44, 30.7,  12.3,  1.97],
+  ['100×50×4', 100, 50, 4.0, 10.4,   8.14, 120,    23.9,  3.40, 38.8,  15.5,  1.93],
+  ['100×60×4', 100, 60, 4.0, 11.6,   9.09, 131,    26.2,  3.36, 59.7,  19.9,  2.27],
+  ['120×60×4', 120, 60, 4.0, 12.8,  10.0,  215,    35.8,  4.10, 70.8,  23.6,  2.35],
+  ['120×60×5', 120, 60, 5.0, 15.8,  12.4,  261,    43.4,  4.06, 85.0,  28.3,  2.32],
+  ['140×80×4', 140, 80, 4.0, 16.8,  13.2,  401,    57.3,  4.89, 174,   43.4,  3.22],
+  ['150×100×5',150,100, 5.0, 23.6,  18.5,  668,    89.0,  5.32, 365,   73.0,  3.93],
+  ['160×80×5', 160, 80, 5.0, 22.6,  17.8,  644,    80.5,  5.34, 206,   51.6,  3.02],
+  ['180×100×5',180,100, 5.0, 26.6,  20.9, 1030,   115,    6.23, 442,   88.4,  4.08],
+  ['200×100×5',200,100, 5.0, 28.6,  22.5, 1483,   148,    7.20, 470,   93.9,  4.06],
+  ['200×100×6',200,100, 6.0, 34.0,  26.7, 1748,   175,    7.16, 550,  110,    4.02],
+  ['200×120×6',200,120, 6.0, 37.2,  29.2, 1921,   192,    7.19, 861,  143,    4.81],
+  ['200×150×6',200,150, 6.0, 41.5,  32.6, 2108,   211,    7.13,1438,  192,    5.89],
+  ['250×150×6',250,150, 6.0, 46.4,  36.4, 4086,   327,    9.39,1774,  236,    6.18],
+  ['250×150×8',250,150, 8.0, 60.8,  47.7, 5264,   421,    9.31,2273,  303,    6.11],
+  ['300×150×8',300,150, 8.0, 69.0,  54.2, 9104,   607,   11.5, 2478,  330,    5.99],
+  ['300×200×8',300,200, 8.0, 77.0,  60.4,10100,   673,   11.5, 5600,  560,    8.52],
+  ['350×200×8',350,200, 8.0, 85.0,  66.7,16150,   922,   13.8, 5920,  592,    8.35],
+  ['400×200×10',400,200,10.0,116,    91.0,29780,  1489,   16.0, 8120,  812,    8.37],
+];
+
+// ── CHS DATA ─────────────────────────────────────────────────
+const CHS_DATA = [
+  ['33.7×2.6',   33.7, 2.6, 13.0,  2.54,  1.99,   2.78,  1.65, 1.05,  5.56,  3.30],
+  ['42.4×2.6',   42.4, 2.6, 16.3,  3.25,  2.55,   5.62,  2.65, 1.31, 11.2,   5.30],
+  ['48.3×3.2',   48.3, 3.2, 15.1,  4.53,  3.56,  10.7,   4.43, 1.54, 21.4,   8.86],
+  ['60.3×3.2',   60.3, 3.2, 18.8,  5.73,  4.50,  21.3,   7.07, 1.93, 42.7,  14.1],
+  ['76.1×4.0',   76.1, 4.0, 19.0,  9.07,  7.11,  53.9,  14.2,  2.44,107.7,  28.3],
+  ['88.9×4.0',   88.9, 4.0, 22.2, 10.7,   8.38,  86.1,  19.4,  2.84,172,    38.8],
+  ['101.6×4.0', 101.6, 4.0, 25.4, 12.3,   9.63, 130,    25.5,  3.25,259,    51.0],
+  ['114.3×4.0', 114.3, 4.0, 28.6, 13.9,  10.9,  186,    32.5,  3.66,372,    65.1],
+  ['114.3×5.0', 114.3, 5.0, 22.9, 17.2,  13.5,  228,    39.8,  3.64,455,    79.7],
+  ['139.7×5.0', 139.7, 5.0, 27.9, 21.2,  16.6,  422,    60.4,  4.47,844,   121],
+  ['168.3×5.0', 168.3, 5.0, 33.7, 25.7,  20.1,  748,    88.9,  5.40,1496,  178],
+  ['168.3×6.3', 168.3, 6.3, 26.7, 32.2,  25.3,  928,   110,    5.36,1856,  221],
+  ['193.7×6.3', 193.7, 6.3, 30.7, 37.2,  29.2, 1424,   147,    6.19,2849,  294],
+  ['219.1×6.3', 219.1, 6.3, 34.8, 42.3,  33.2, 2091,   191,    7.03,4182,  382],
+  ['219.1×8.0', 219.1, 8.0, 27.4, 53.3,  41.9, 2603,   238,    6.99,5206,  476],
+  ['244.5×8.0', 244.5, 8.0, 30.6, 59.7,  46.8, 3669,   300,    7.84,7338,  601],
+  ['273.0×8.0', 273.0, 8.0, 34.1, 66.8,  52.4, 5131,   376,    8.77,10262,  751],
+  ['273.0×10.0',273.0,10.0, 27.3, 83.0,  65.2, 6302,   462,    8.71,12604,  923],
+  ['323.9×8.0', 323.9, 8.0, 40.5, 79.6,  62.5, 8622,   532,   10.41,17244, 1065],
+  ['323.9×10.0',323.9,10.0, 32.4, 99.0,  77.7,10605,   655,   10.35,21210, 1310],
+];
+
+// ── STEEL DECK DATA ───────────────────────────────────────────
+const DECK_DATA = [
+  ['FS-25  (HR-38)', '0.76', 38, 300, 900, 8.50,  38.5, 10.2, 12.8, 115, 190],
+  ['FS-25  (HR-38)', '1.00', 38, 300, 900,11.2,   51.4, 13.6, 17.1, 115, 190],
+  ['FS-25  (HR-38)', '1.20', 38, 300, 900,13.4,   61.3, 16.2, 20.4, 115, 190],
+  ['FS-50  (HR-76)', '0.76', 76, 150, 900, 8.50,  69.2, 18.2, 20.4, 150, 220],
+  ['FS-50  (HR-76)', '1.00', 76, 150, 900,11.2,   92.0, 24.2, 27.2, 150, 220],
+  ['FS-50  (HR-76)', '1.20', 76, 150, 900,13.4,  110,   28.9, 32.5, 150, 220],
+  ['FS-75  (HR-75)', '0.76', 75, 200, 600, 9.10,  82.4, 22.0, 23.6, 130, 220],
+  ['FS-75  (HR-75)', '1.00', 75, 200, 600,12.0,  110,   29.3, 31.4, 130, 220],
+  ['FS-75  (HR-75)', '1.20', 75, 200, 600,14.4,  131,   35.0, 37.5, 130, 220],
+  ['FS-30N (HR-51)', '0.76', 51, 152, 914, 7.50,  41.2, 10.8, 13.2, 125, 200],
+  ['FS-30N (HR-51)', '1.00', 51, 152, 914, 9.90,  54.9, 14.4, 17.6, 125, 200],
+];
+
+// ─── Helper: format numbers ──────────────────────────────────
+function fmt(v) {
+  if (typeof v === 'number') {
+    if (v >= 10000) return v.toLocaleString('es-EC', {maximumFractionDigits: 0});
+    if (v >= 1000)  return v.toLocaleString('es-EC', {maximumFractionDigits: 0});
+    if (v >= 100)   return v.toFixed(1);
+    if (v >= 10)    return v.toFixed(1);
+    return v.toFixed(2);
+  }
+  return v;
+}
+
+// ─── Build generic 13-column profile table ───────────────────
+function buildTable(tbodyId, data) {
+  const tbody = document.getElementById(tbodyId);
+  if (!tbody) return;
+  data.forEach(row => {
+    const tr = document.createElement('tr');
+    row.forEach((cell, i) => {
+      const td = document.createElement('td');
+      td.textContent = fmt(cell);
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+}
+
+// ─── Build specialized tables ─────────────────────────────────
+function buildSHSTable() {
+  const tbody = document.getElementById('shs-tbody');
+  SHS_DATA.forEach(row => {
+    const [name,b,e,R,A,P,Ix,Wx,ix,It,Ct] = row;
+    tbody.innerHTML += `<tr>
+      <td>${name}</td><td>${b}</td><td>${e}</td><td>${R}</td>
+      <td>${fmt(A)}</td><td>${fmt(P)}</td>
+      <td>${fmt(Ix)}</td><td>${fmt(Wx)}</td><td>${fmt(ix)}</td>
+      <td>${fmt(It)}</td><td>${fmt(Ct)}</td>
+    </tr>`;
+  });
+}
+
+function buildRHSTable() {
+  const tbody = document.getElementById('rhs-tbody');
+  RHS_DATA.forEach(row => {
+    const [name,h,b,e,A,P,Ix,Wx,ix,Iy,Wy,iy] = row;
+    tbody.innerHTML += `<tr>
+      <td>${name}</td><td>${h}</td><td>${b}</td><td>${e}</td>
+      <td>${fmt(A)}</td><td>${fmt(P)}</td>
+      <td>${fmt(Ix)}</td><td>${fmt(Wx)}</td><td>${fmt(ix)}</td>
+      <td>${fmt(Iy)}</td><td>${fmt(Wy)}</td><td>${fmt(iy)}</td>
+    </tr>`;
+  });
+}
+
+function buildCHSTable() {
+  const tbody = document.getElementById('chs-tbody');
+  CHS_DATA.forEach(row => {
+    const [name,D,e,ratio,A,P,Ix,Wx,ix,It,Wt] = row;
+    tbody.innerHTML += `<tr>
+      <td>${name}</td><td>${D}</td><td>${e}</td><td>${ratio}</td>
+      <td>${fmt(A)}</td><td>${fmt(P)}</td>
+      <td>${fmt(Ix)}</td><td>${fmt(Wx)}</td><td>${fmt(ix)}</td>
+      <td>${fmt(It)}</td><td>${fmt(Wt)}</td>
+    </tr>`;
+  });
+}
+
+function buildDeckTable() {
+  const tbody = document.getElementById('deck-tbody');
+  DECK_DATA.forEach(row => {
+    const [name,t,hr,paso,ancho,P,Ix,Wxp,Wxn,lmin,lmax] = row;
+    tbody.innerHTML += `<tr>
+      <td>${name}</td><td>${t}</td><td>${hr}</td><td>${paso}</td><td>${ancho}</td>
+      <td>${fmt(P)}</td><td>${fmt(Ix)}</td><td>${fmt(Wxp)}</td><td>${fmt(Wxn)}</td>
+      <td>${lmin}</td><td>${lmax}</td>
+    </tr>`;
+  });
+}
+
+// ─── Initialize all tables ────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  buildTable('ipe-tbody',  IPE_DATA);
+  buildTable('heb-tbody',  HEB_DATA);
+  buildTable('inp-tbody',  INP_DATA);
+  buildTable('unp-tbody',  UNP_DATA);
+  buildTable('upe-tbody',  UPE_DATA);
+  buildTable('c-tbody',    C_DATA);
+  buildTable('g-tbody',    G_DATA);
+  buildSHSTable();
+  buildRHSTable();
+  buildCHSTable();
+  buildDeckTable();
+});
+</script>
+
+<script>
+const sections = document.querySelectorAll("section, .profile-section, .cover, .toc-page");
+const navLinks = document.querySelectorAll(".dot-nav a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(sec => {
+    const sectionTop = sec.offsetTop - 200;
+    if (pageYOffset >= sectionTop) {
+      current = sec.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    const href = link.getAttribute("href").replace("#", "");
+    if (href === current) {
+      link.classList.add("active");
+    }
+  });
+});
+</script>
+</body>
+</html>
